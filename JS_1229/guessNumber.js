@@ -3,7 +3,7 @@ let secretNumber = generateRandomNumber();
 
 // 4. Function to generate a random number between 1 and 10
 function generateRandomNumber() {
-  
+  return Math.floor(Math.random() * 10) + 1;
 }
 
 // Function to check the user's guess
@@ -14,14 +14,15 @@ function checkGuess() {
   let resultElement = document.getElementById("result");
 
   // 5. Here should be an if-else statement.
-
-  // If the answer is correct, then output "Congratulations! You guessed the correct number!" with picture2 and music2.
-
-  // If the answer is wrong, then output "Sorry, try again!" with picture1 and music1.
-
-  // P.S. Generate a new random number for the next round after getting the correct answer.
-
-  // Clear the input field for the next guess
+  if(userGuess == secretNumber){
+    resultElement.textContent = "Congratulations! You guessed the correct number!";
+    showImageAndPlaySound("picture2.JPEG", "music2.mp3");
+    secretNumber = generateRandomNumber();
+  } else {
+    resultElement.textContent = "Sorry, try again!";
+    showImageAndPlaySound("picture1.JPEG", "music1.mp3");
+  }
+  
   document.getElementById("userGuess").value = "";
 }
 
