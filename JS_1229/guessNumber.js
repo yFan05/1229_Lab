@@ -14,7 +14,7 @@ function checkGuess() {
   let resultElement = document.getElementById("result");
 
   // 5. Here should be an if-else statement.
-  if(userGuess == secretNumber){
+  if(userGuess === secretNumber){
     resultElement.textContent = "Congratulations! You guessed the correct number!";
     showImageAndPlaySound("picture2.JPEG", "music2.mp3");
     secretNumber = generateRandomNumber();
