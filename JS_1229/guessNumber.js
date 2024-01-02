@@ -14,13 +14,13 @@ function checkGuess() {
   let resultElement = document.getElementById("result");
 
   // 5. Here should be an if-else statement.
-  if(userGuess === secretNumber){
+  if(userGuess !== secretNumber){
+    resultElement.textContent = "Sorry, try again!";
+    showImageAndPlaySound("picture1.JPEG", "music1.mp3");
+  } else {
     resultElement.textContent = "Congratulations! You guessed the correct number!";
     showImageAndPlaySound("picture2.JPEG", "music2.mp3");
     secretNumber = generateRandomNumber();
-  } else {
-    resultElement.textContent = "Sorry, try again!";
-    showImageAndPlaySound("picture1.JPEG", "music1.mp3");
   }
   
   document.getElementById("userGuess").value = "";
@@ -40,3 +40,5 @@ function showImageAndPlaySound(imageSource, soundSource) {
   resultContainer.appendChild(imageElement);
   resultContainer.appendChild(soundElement);
 }
+
+
